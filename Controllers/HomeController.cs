@@ -18,12 +18,26 @@ namespace TempleTour.Controllers
             _logger = logger;
         }
 
+        //index view
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        //sign up view
+        public IActionResult Signup()
+        {
+            return View();
+        }
+
+        //form view
+        public IActionResult Form()
+        {
+            return View();
+        }
+
+        //View Appointments view
+        public IActionResult ViewAppointments()
         {
             return View();
         }

@@ -28,7 +28,7 @@ namespace TempleTour
             services.AddControllersWithViews();
             services.AddDbContext<TempleTourDbContext>(options =>
             {
-                options.UseSqlite(Configuration["ConnectionStrings:TempleTourConnection"])
+                options.UseSqlite(Configuration["ConnectionStrings:TempleTourConnection"]);
             });
 
             services.AddScoped<ITempleTourRepository, EFTEmpleTourRepository>();

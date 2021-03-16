@@ -1,25 +1,28 @@
-﻿@model TimeslotListViewModel
-
-<div>
+﻿<div>
     <h3>All Appointments</h3>
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>Appointment ID</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>Available</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (Timeslot x in Model.Timeslots)
             {
-                <tr>
-                    <td>@x.TimeslotId</td>
-                    <td>@x.Date</td>
-                    <td>@x.Time</td>
-                    <td>@x.Available</td>
-                </tr>
+            <tr>
+                <td>@x.Date</td>
+                <td>@x.Time</td>
+                <td>@x.Available</td>
+                <td>
+                    <form id="@x.TimeslotId" asp-action="Form" method="post">
+                        <input type="hidden" />
+                        <button type="submit">Sign Up</button>
+                    </form>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

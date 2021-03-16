@@ -2,7 +2,7 @@
 
 <div>
     <h3>My Appointments</h3>
-    <table>
+    <table class="table table-bordered table-striped" >
         <thead>
             <tr>
                 <th>Appointment ID</th>
@@ -15,16 +15,16 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (TempleTour.Models.ViewModels.AppointmentListViewModel x in Model)
+            @foreach (Appointment x in Model)
             {
             <tr>
-                <td>@x.Appointments.AppointmentId</td>
-                <td>@x.Appointments.Date</td>
-                <td>@x.Appointments.Time</td>
-                <td>@x.Appointments.GroupName </td>
-                <td>@x.Appointments.GroupSize</td>
-                <td>@x.Appointments.EmailAddress</td>
-                <td>@x.Appointments.PhoneNumber</td>
+                <td>@x.AppointmentId</td>
+                <td>@x.Date</td>
+                <td>@x.Time</td>
+                <td>@x.GroupName </td>
+                <td>@x.GroupSize</td>
+                <td>@x.EmailAddress</td>
+                <td>@x.PhoneNumber</td>
             </tr>
             }
         </tbody>

@@ -1,3 +1,28 @@
-﻿<div>
-    Sign up page
+﻿@model TimeslotListViewModel
+
+<div>
+    <h3>My Appointments</h3>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Appointment ID</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Available</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Timeslot x in Model.Timeslots)
+            {
+                <tr>
+                    <td>@x.TimeslotId</td>
+                    <td>@x.Date</td>
+                    <td>@x.Time</td>
+                    <td>@x.Available</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
+
+

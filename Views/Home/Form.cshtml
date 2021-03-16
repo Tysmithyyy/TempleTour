@@ -1,3 +1,27 @@
-﻿<div>
-    Form Page
+﻿@model TempleTour.Models.Appointment
+
+<div>
+    <h3>Signup Information</h3>
+
+    <form>
+        <label asp-for="GroupName">Name of Group</label>
+        <input asp-for="GroupName" />
+        <br />
+        <br />
+
+        <label asp-for="GroupSize">Size of Group</label>
+        <input asp-for="GroupSize" />
+        <br />
+        <br />
+
+        <label asp-for="EmailAddress">Email Address</label>
+        <input asp-for="EmailAddress" />
+        <br />
+        <br />
+
+        <label asp-for="PhoneNumber">Phone Number</label>
+        <input asp-for="PhoneNumber" />
+    </form>
+
+    <div asp-validation-summary="All"></div>
 </div>

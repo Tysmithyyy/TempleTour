@@ -17,9 +17,11 @@
                 <td>@x.Time</td>
                 <td>@x.Available</td>
                 <td>
-                    <form id="@x.TimeslotId" asp-action="Form" method="post">
-                        <input type="hidden" />
-                        <button type="submit">Sign Up</button>
+                    <form id="@x.TimeslotId" asp-action="Signup" method="post">
+                        <input type="hidden" value="@x.Time" name="time"/>
+                        <input type="hidden" value="@x.Date" name="date"/>
+                        <input type="hidden" value="@x.TimeslotId" />
+                        <button class="btn" type="submit">Sign Up</button>
                     </form>
                 </td>
             </tr>

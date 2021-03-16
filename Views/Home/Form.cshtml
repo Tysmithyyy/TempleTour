@@ -3,28 +3,32 @@
 <div>
     <h3>Signup Information</h3>
 
-    <div>Date: </div>
-    <div>Time: </div>
-
-    <form>
-        <label asp-for="GroupName">Name of Group</label>
-        <input asp-for="GroupName" />
-        <br />
-        <br />
-
-        <label asp-for="GroupSize">Size of Group</label>
-        <input asp-for="GroupSize" />
-        <br />
-        <br />
-
-        <label asp-for="EmailAddress">Email Address</label>
-        <input asp-for="EmailAddress" />
-        <br />
-        <br />
-
-        <label asp-for="PhoneNumber">Phone Number</label>
-        <input asp-for="PhoneNumber" />
-    </form>
+    <form class="col-8">
+        <div class="form-group">
+            <label asp-for="Date">Date</label>
+            <input class="form-control" asp-for="Date" value="@Model.Date" readonly />
+        </div>
+        <div class="form-group">
+            <label asp-for="Time">Time</label>
+            <input class="form-control" asp-for="Time" value="@Model.Time" readonly />
+        </div>
+        <div class="form-group">
+            <label asp-for="GroupName">Name of Group</label>
+            <input class="form-control" asp-for="GroupName" />
+        </div>
+        <div class="form-group">
+            <label asp-for="GroupSize">Size of Group</label>
+            <input class="form-control" asp-for="GroupSize" />
+        </div>
+        <div class="form-group">
+            <label asp-for="EmailAddress">Email Address</label>
+            <input type="email" class="form-control" asp-for="EmailAddress" />
+        </div>
+        <div class="form-group">
+            <label asp-for="PhoneNumber">Phone Number</label>
+            <input type="tel" class="form-control" asp-for="PhoneNumber" />
+        </div>
+</form>
 
     <div asp-validation-summary="All"></div>
 </div>

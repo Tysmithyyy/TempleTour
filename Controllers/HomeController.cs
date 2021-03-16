@@ -44,6 +44,17 @@ namespace TempleTour.Controllers
 
         }
 
+        [HttpPost]
+        public IActionResult Signup(string time, string date)
+        {
+            var appointment = new Appointment
+            {
+                Time = time,
+                Date = date
+            };
+            return View("Form", appointment);
+        }
+
         //form view
         public IActionResult Form()
         {

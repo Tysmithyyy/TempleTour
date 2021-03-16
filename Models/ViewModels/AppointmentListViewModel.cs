@@ -9,4 +9,5 @@ namespace TempleTour.Models.ViewModels
     {
         public IEnumerable<Appointment> Appointments { get; set; }
     }
+
 }

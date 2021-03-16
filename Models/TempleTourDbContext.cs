@@ -14,5 +14,6 @@ namespace TempleTour.Models
         }
 
         public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<Timeslot> Timeslots { get; set; }
     }
 }

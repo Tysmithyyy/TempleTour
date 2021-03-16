@@ -15,5 +15,6 @@ namespace TempleTour.Models
         }
 
         public IQueryable<Appointment> Appointments => _context.Appointments;
+        public IQueryable<Timeslot> Timeslots => _context.Timeslots;
     }
 }

@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace TempleTour.Models
 {
-    public class ITempleTourRepository
+    public interface ITempleTourRepository
     {
         IQueryable<Appointment> Appointments { get; }
+        IQueryable<Timeslot> Timeslots { get; }
     }
 }

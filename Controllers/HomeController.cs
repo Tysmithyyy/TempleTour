@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using TempleTour.Models;
+using TempleTour.Models.ViewModels;
 
 namespace TempleTour.Controllers
 {
@@ -13,9 +14,14 @@ namespace TempleTour.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private ITempleTourRepository _repository;
+
+        //added to receive the Itimeslotrepostory
+        public HomeController(ILogger<HomeController> logger, ITempleTourRepository repository)
         {
             _logger = logger;
+            //added
+            _repository = repository;
         }
 
         //index view
@@ -24,10 +30,18 @@ namespace TempleTour.Controllers
             return View();
         }
 
-        //sign up view
+        //sign up view, pass the timeslots that are available
         public IActionResult Signup()
         {
-            return View();
+
+           
+            return View(new TimeslotListViewModel
+            {
+                Timeslots = _repository.Timeslots
+                    .Where(t => t.Available == "Available")
+                    .OrderBy(t => t.TimeslotId)
+            });
+
         }
 
         //form view

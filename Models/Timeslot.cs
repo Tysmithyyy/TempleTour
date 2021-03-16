@@ -12,6 +12,7 @@ namespace TempleTour.Models
         public int TimeslotId { get; set; }
         public string Date { get; set; }
         public string Time { get; set; }
+        public string Available { get; set; }
 
     }
 }

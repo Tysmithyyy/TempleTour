@@ -17,7 +17,7 @@ namespace TempleTour.Models
         [Required]
         public string GroupName { get; set; }
         [Required]
-        public string GroupSize { get; set; }
+        public int GroupSize { get; set; }
         [Required]
         public string EmailAddress { get; set; }
         public int PhoneNumber { get; set; }

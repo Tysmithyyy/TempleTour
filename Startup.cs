@@ -66,6 +66,9 @@ namespace TempleTour
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //call method
+            SeedData.EnsurePopulated(app);
         }
     }
 }

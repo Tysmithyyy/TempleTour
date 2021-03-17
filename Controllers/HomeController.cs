@@ -18,7 +18,6 @@ namespace TempleTour.Controllers
         private ITempleTourRepository _repository;
 
         
-
         //set up for the db context for the appointments
         private TempleTourDbContext context { get; set; }
 
@@ -63,31 +62,28 @@ namespace TempleTour.Controllers
                 Time = time,
                 Date = date
             };
+
             return View("Form", appointment);
         }
 
-        //[HttpPost]
-        //public IActionResult Form(Appointment appointment)
-        //{
-            //return View("ViewAppointments", appointment);
-        //}
 
-        //http post to pull up the page with the list of appoitments.
-        //when the "sign up" button is pressed, the appointment is appended ontot the repository or appointments
+        //when the "sign up" button is pressed, the appointment is appended onto  the dbcontext of appointments
+
         [HttpPost]
         public IActionResult Form(Appointment appointment)
         {
-            
-            //update database if valid, if not, return the asp-validation summary
-            context.Appointments.Add(appointment);
-            context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                //update data entered is valid, if not, return the asp-validation summary
+                context.Appointments.Add(appointment);                             
+                context.SaveChanges();
 
-            
-            return View();
-            
+            }
+
+            return View("ViewAppointments", appointment);
         }
 
-        
+
 
         //form view
         public IActionResult Form()

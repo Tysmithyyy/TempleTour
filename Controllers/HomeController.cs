@@ -62,6 +62,15 @@ namespace TempleTour.Controllers
                 Time = time,
                 Date = date
             };
+            Timeslot someTime = new Timeslot();
+            someTime = _repository.Timeslots
+                .Where(t => t.Time == time && t.Date == date)
+                .OrderBy(t => t.TimeslotId).FirstOrDefault();
+
+            someTime.Available = "unavailable";
+
+            context.Update(someTime);
+            context.SaveChanges();
 
             return View("Form", appointment);
         }
@@ -79,8 +88,8 @@ namespace TempleTour.Controllers
                 context.SaveChanges();
 
             }
-
-            return View("ViewAppointments", appointment);
+            return RedirectToAction("ViewAppointments");
+            //return View("ViewAppointments", );
         }
 
 

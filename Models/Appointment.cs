@@ -20,6 +20,8 @@ namespace TempleTour.Models
         public int GroupSize { get; set; }
         [Required]
         public string EmailAddress { get; set; }
+
+        //phone number set as string so it can be validated usign the tag helper on Form.cshtml
         public string PhoneNumber { get; set; }
     }
 }

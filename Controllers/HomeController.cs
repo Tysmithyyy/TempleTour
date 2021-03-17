@@ -44,7 +44,7 @@ namespace TempleTour.Controllers
         public IActionResult Signup()
         {
 
-           
+           //only bring in timslots that are available
             return View(new TimeslotListViewModel
             {
                 Timeslots = _repository.Timeslots
@@ -57,11 +57,14 @@ namespace TempleTour.Controllers
         [HttpPost]
         public IActionResult Signup(string time, string date)
         {
+            //set appointment with form information
             var appointment = new Appointment
             {
                 Time = time,
                 Date = date
             };
+
+            //change timeslot availibility to "unavailable" so that it is not included on the sign up page one the time slot has been booked
             Timeslot someTime = new Timeslot();
             someTime = _repository.Timeslots
                 .Where(t => t.Time == time && t.Date == date)
@@ -69,6 +72,7 @@ namespace TempleTour.Controllers
 
             someTime.Available = "unavailable";
 
+            //update changes to database --changes to unavailable
             context.Update(someTime);
             context.SaveChanges();
 
@@ -88,8 +92,9 @@ namespace TempleTour.Controllers
                 context.SaveChanges();
 
             }
+
+            //after appointment is added to list of appointments, redirect to the ViewAppointments page
             return RedirectToAction("ViewAppointments");
-            //return View("ViewAppointments", );
         }
 
 
@@ -98,7 +103,7 @@ namespace TempleTour.Controllers
         public IActionResult Form()
             {
 
-                //return the list of all appointments
+                //allow user to fill out form based on the appointment that they chose
                 return View();
             }
 
@@ -107,7 +112,7 @@ namespace TempleTour.Controllers
         //View Appointments view
         public IActionResult ViewAppointments()
         {
-            //return the list of all appointments
+            //return the list of all appointments that have been booked by the user
             return View(new AppointmentListViewModel
             {
                 Appointments = _repository.Appointments

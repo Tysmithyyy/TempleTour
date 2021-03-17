@@ -58,7 +58,13 @@ namespace TempleTour.Controllers
         //form view
         public IActionResult Form()
         {
-            return View();
+            
+            //return the list of all appointments
+            return View(new AppointmentListViewModel
+            {
+                Appointments = _repository.Appointments
+                    .OrderBy(t => t.AppointmentId)
+            });
         }
 
         [HttpPost]

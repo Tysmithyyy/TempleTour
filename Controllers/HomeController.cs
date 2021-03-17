@@ -61,6 +61,12 @@ namespace TempleTour.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Form(Appointment appointment)
+        {
+            return View("ViewAppointments", appointment);
+        }
+
         //View Appointments view
         public IActionResult ViewAppointments()
         {
